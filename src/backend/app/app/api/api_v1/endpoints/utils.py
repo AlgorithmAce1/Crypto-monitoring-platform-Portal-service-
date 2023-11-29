@@ -11,7 +11,7 @@ from app.utils import send_test_email
 router = APIRouter()
 
 
-@router.post("/test-celery/user/", response_model=schemas.Msg, status_code=201)
+@router.post("/test-celery/", response_model=schemas.Msg, status_code=201)
 def test_celery(
     msg: schemas.Msg,
     current_user: models.User = Depends(deps.get_current_active_superuser),
@@ -23,7 +23,7 @@ def test_celery(
     return {"msg": "Word received"}
 
 
-@router.post("/test-email/user/", response_model=schemas.Msg, status_code=201)
+@router.post("/test-email/", response_model=schemas.Msg, status_code=201)
 def test_email(
     email_to: EmailStr,
     current_user: models.User = Depends(deps.get_current_active_superuser),
