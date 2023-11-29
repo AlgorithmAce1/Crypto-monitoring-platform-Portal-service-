@@ -16,11 +16,15 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     email: EmailStr
     password: str
+    first_name: str
+    last_name: srt
 
 
 # Properties to receive via API on update
 class UserUpdate(UserBase):
     password: Optional[str] = None
+    first_name: str
+    last_name: str
 
 
 class UserInDBBase(UserBase):
